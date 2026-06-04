@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Techfest 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+body::before{
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%,#00f7ff33,transparent 30%),
+radial-gradient(circle at 80% 80%,#9d00ff33,transparent 30%);
+z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.3);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo{
+font-family:'Orbitron';
+font-size:1.4rem;
+font-weight:800;
+color:#00f7ff;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+transition:.3s;
+}
+
+nav a:hover{
+color:#00f7ff;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content h1{
+font-family:'Orbitron';
+font-size:4rem;
+text-transform:uppercase;
+color:#00f7ff;
+text-shadow:0 0 20px #00f7ff;
+}
+
+.hero-content p{
+max-width:700px;
+margin:20px auto;
+font-size:1.1rem;
+line-height:1.8;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+margin-top:20px;
+background:linear-gradient(45deg,#00f7ff,#8f00ff);
+border-radius:50px;
+color:white;
+font-weight:600;
+text-decoration:none;
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px #00f7ff;
+}
+
+/* SECTION */
+
+section{
+padding:100px 8%;
+}
+
+.section-title{
+font-family:'Orbitron';
+font-size:2.5rem;
+text-align:center;
+margin-bottom:60px;
+color:#00f7ff;
+}
+
+/* CARDS */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:20px;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px #00f7ff50;
+}
+
+.card h3{
+margin-bottom:15px;
+color:#00f7ff;
+}
+
+/* COUNTDOWN */
+
+.countdown{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.time-box{
+width:120px;
+height:120px;
+border-radius:20px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:rgba(255,255,255,0.05);
+border:1px solid #00f7ff;
+}
+
+.time-box span{
+font-size:2rem;
+font-weight:bold;
+color:#00f7ff;
+}
+
+/* TIMELINE */
+
+.timeline{
+position:relative;
+max-width:900px;
+margin:auto;
+}
+
+.timeline::before{
+content:'';
+position:absolute;
+left:50%;
+width:4px;
+height:100%;
+background:#00f7ff;
+}
+
+.timeline-item{
+width:50%;
+padding:20px 40px;
+position:relative;
+}
+
+.timeline-item:nth-child(odd){
+left:0;
+text-align:right;
+}
+
+.timeline-item:nth-child(even){
+left:50%;
+}
+
+.timeline-item::before{
+content:'';
+position:absolute;
+top:30px;
+width:15px;
+height:15px;
+background:#00f7ff;
+border-radius:50%;
+}
+
+.timeline-item:nth-child(odd)::before{
+right:-10px;
+}
+
+.timeline-item:nth-child(even)::before{
+left:-10px;
+}
+
+/* REGISTER */
+
+.register{
+text-align:center;
+}
+
+.register h2{
+font-size:2.5rem;
+margin-bottom:20px;
+}
+
+.register p{
+max-width:700px;
+margin:auto;
+line-height:1.8;
+}
+
+/* FOOTER */
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.1);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:2.5rem;
+}
+
+.timeline::before{
+left:10px;
+}
+
+.timeline-item{
+width:100%;
+left:0 !important;
+text-align:left !important;
+padding-left:40px;
+}
+
+.timeline-item::before{
+left:3px !important;
+}
+
+nav ul{
+display:none;
+}
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">Techfest 2026</div>
+<ul>
+<li><a href="#intro">Intro</a></li>
+<li><a href="#countdown">Countdown</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#workshops">Workshops</a></li>
+<li><a href="#schedule">Schedule</a></li>
+<li><a href="#accommodation">Accommodation</a></li>
+<li><a href="#register">Register</a></li>
+</ul>
+</nav>
+
+<!-- INTRODUCTION -->
+
+<section class="hero" id="intro">
+<div class="hero-content">
+<h1>Techfest 2026</h1>
+<p>
+Welcome to Asia's Largest Sciene and Technology Festival.
+</p>
+<a href="#register" class="btn">Join The Future</a>
+</div>
+</section>
+
+<!-- COUNTDOWN -->
+
+<section id="countdown">
+<h2 class="section-title">Event Countdown</h2>
+
+<div class="countdown">
+<div class="time-box">
+<span id="days">00</span>
+Days
+</div>
+
+<div class="time-box">
+<span id="hours">00</span>
+Hours
+</div>
+
+<div class="time-box">
+<span id="minutes">00</span>
+Minutes
+</div>
+
+<div class="time-box">
+<span id="seconds">00</span>
+Seconds
+</div>
+</div>
+</section>
+
+<!-- EVENTS -->
+
+<section id="events">
+<h2 class="section-title">Featured Events</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Event-1</h3>
+<p>Description.</p>
+</div>
+
+<div class="card">
+<h3>Event-2</h3>
+<p>Description.</p>
+</div>
+
+<div class="card">
+<h3>Event-3</h3>
+<p>Description.</p>
+</div>
+
+</div>
+</section>
+
+<!-- WORKSHOPS -->
+
+<section id="workshops">
+<h2 class="section-title">Workshops</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Workshop-1</h3>
+<p>Description.</p>
+</div>
+
+<div class="card">
+<h3>Workshop-2</h3>
+<p>Description.</p>
+</div>
+
+<div class="card">
+<h3>Workshop-3</h3>
+<p>Description.</p>
+</div>
+
+</div>
+</section>
+
+<!-- SCHEDULE -->
+
+<section id="schedule">
+<h2 class="section-title">Event Schedule</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Time</h3>
+<p>Opening Ceremony</p>
+</div>
+
+<div class="timeline-item">
+<h3>Time</h3>
+<p>Event</p>
+</div>
+
+<div class="timeline-item">
+<h3>Time</h3>
+<p>Event</p>
+</div>
+
+<div class="timeline-item">
+<h3>Time</h3>
+<p>Event</p>
+</div>
+
+</div>
+</section>
+
+<!-- ACCOMMODATION -->
+
+<section id="accommodation">
+<h2 class="section-title">Accommodation</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Hostel Stay</h3>
+<p>Affordable student accommodation with meals included.</p>
+</div>
+
+<div class="card">
+<h3>Premium Rooms</h3>
+<p>Comfortable AC rooms for professionals and guests.</p>
+</div>
+
+<div class="card">
+<h3>Travel Assistance</h3>
+<p>Pickup and local transport guidance available.</p>
+</div>
+
+</div>
+</section>
+
+<!-- REGISTER -->
+
+<section class="register" id="register">
+<h2>Become Part of The Future</h2>
+
+<p>
+Secure your place at the most advanced cyborg-themed
+technology fest. Limited registrations available.
+</p>
+
+<a href="https://github.com/yourusername/techfest-2026"
+   target="_blank"
+   class="btn">
+   Register Now
+</a>
+</section>
+
+<footer>
+© 2026 Techfest | Human Evolution Through Technology
+</footer>
+
+<script>
+
+const targetDate = new Date("December 31, 2026 00:00:00").getTime();
+
+setInterval(() => {
+
+const now = new Date().getTime();
+const gap = targetDate - now;
+
+const days = Math.floor(gap/(1000*60*60*24));
+const hours = Math.floor((gap%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((gap%(1000*60*60))/(1000*60));
+const seconds = Math.floor((gap%(1000*60))/1000);
+
+document.getElementById("days").innerText=days;
+document.getElementById("hours").innerText=hours;
+document.getElementById("minutes").innerText=minutes;
+document.getElementById("seconds").innerText=seconds;
+
+},1000);
+
+</script>
+
+</body>
+</html>
